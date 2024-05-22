@@ -71,13 +71,10 @@ Before you begin, ensure you have met the following requirements:
 #### GET `/fetch-all-csula-courses`
 - Fetches all CSULA courses based on `dept` query parameter.
 
-
-
 ### General Courses
 
 #### GET `/fetch-courses`
 - Fetches courses based on `sid` query parameter.
-
 
 ### Course Types
 
@@ -89,9 +86,7 @@ Before you begin, ensure you have met the following requirements:
 #### GET `/fetch-req-block-details`
 - Fetches department requirement blocks based on `dept` query parameter.
 
-
-
-# Models
+## Models
 
 ### Schools
 - Schema: `{ name: String, location: String }`
@@ -111,6 +106,6 @@ Before you begin, ensure you have met the following requirements:
 ### DeptReqBlocks
 - Schema: `{ name: String, dept_id: String, blocks: Array }`
 
-# License
+## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
