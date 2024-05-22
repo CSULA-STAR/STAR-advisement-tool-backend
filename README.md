@@ -1,4 +1,4 @@
-# STAR Advisement Tool (BACKEND)
+# STAR Advisement Tool
 
 The STAR Advisement Tool is a Node.js server application using Express.js, designed to provide academic advisement and guidance. The application uses MongoDB as its database to store and manage data.
 
@@ -9,7 +9,6 @@ The STAR Advisement Tool is a Node.js server application using Express.js, desig
 - [Configuration](#configuration)
 - [Running the Server](#running-the-server)
 - [API Endpoints](#api-endpoints)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Features
@@ -49,62 +48,67 @@ Before you begin, ensure you have met the following requirements:
 
 ## API Endpoints
 
-## Root Endpoint
+### Root Endpoint
 
-### GET `/`
+#### GET `/`
 - Returns a welcome message.
 
-## Institutes
+### Institutes
 
-### GET `/fetch-institutes`
+#### GET `/fetch-institutes`
 - Fetches all institutes.
 
-## Programs
+### Programs
 
-### GET `/fetch-programs`
+#### GET `/fetch-programs`
 - Fetches programs based on `collegeId` query parameter.
 
-## CSULA Courses
+### CSULA Courses
 
-### GET `/fetch-csula-courses`
+#### GET `/fetch-csula-courses`
 - Fetches CSULA courses based on `dept` query parameter and organizes them by block type.
 
-### GET `/fetch-all-csula-courses`
+#### GET `/fetch-all-csula-courses`
 - Fetches all CSULA courses based on `dept` query parameter.
 
-## General Courses
 
-### GET `/fetch-courses`
+
+### General Courses
+
+#### GET `/fetch-courses`
 - Fetches courses based on `sid` query parameter.
 
-## Course Types
 
-### GET `/course-types`
+### Course Types
+
+#### GET `/course-types`
 - Fetches all course types.
 
-## Department Requirement Blocks
+### Department Requirement Blocks
 
-### GET `/fetch-req-block-details`
+#### GET `/fetch-req-block-details`
 - Fetches department requirement blocks based on `dept` query parameter.
+
+
 
 # Models
 
-## Schools
+### Schools
 - Schema: `{ name: String, location: String }`
 
-## Programs
+### Programs
 - Schema: `{ s_id: String, name: String, department: String }`
 
-## CSULA_Courses
+### CSULA_Courses
 - Schema: `{ course_code: Array, course_name: String, department: Array, credits: Number, category: String, block_type: String }`
 
-## Courses
+### Courses
 - Schema: `{ course_code: Array, course_name: String, department: Array, credits: Number, category: String }`
 
-## CourseTypes
+### CourseTypes
 - Schema: `{ types: [{ id: String, name: String }] }`
 
-## DeptReqBlocks
+### DeptReqBlocks
 - Schema: `{ name: String, dept_id: String, blocks: Array }`
 
 # License
