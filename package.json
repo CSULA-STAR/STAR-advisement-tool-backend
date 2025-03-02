@@ -1,19 +1,23 @@
 {
   "name": "sat",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "SAT",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon server.js"
   },
-  "author": "Parag Chaudhari",
+  "author": "Parag Chaudhari, Ethan Chen",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.6.7",
     "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "mongodb": "^6.5.0",
+    "express": "^4.21.2",
     "mongoose": "^8.1.2",
-    "prop-types": "^15.8.1"
+    "prop-types": "^15.8.1",
+    "jsonwebtoken": "^9.0.2"
+  },
+    "devDependencies": {
+      "nodemon": "^3.1.9"
   }
 }
