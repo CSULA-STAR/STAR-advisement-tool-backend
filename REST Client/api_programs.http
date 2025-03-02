@@ -1,0 +1,43 @@
+### program API
+@apiurl = http://localhost:3001
+
+###
+// Retrieve a list of all programs.
+// GET /api/programs
+GET {{apiurl}}/api/programs
+
+###
+// Retrieve a specific program by ID.
+// GET  /api/programs/:id
+###
+GET {{apiurl}}/api/programs/001
+
+###
+GET {{apiurl}}/api/programs/65cfa19d6f0d7275cb6cabec
+
+###
+// Add a program
+// POST  /api/programs
+POST {{apiurl}}/api/programs
+Content-Type: application/json
+
+{
+  "s_id": "004",
+  "name": "Electrical Engineering",
+  "department": "EE"
+}
+
+###
+// Remove a program by ID.
+// DELETE   /programs/:id
+DELETE {{apiurl}}/api/programs/005
+
+###
+// Update program information by ID.
+// PUT  /programs/:id
+PUT {{apiurl}}/api/programs/004
+Content-Type: application/json
+
+{
+  "name": "TestTest University"
+}
