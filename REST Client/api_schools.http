@@ -1,0 +1,40 @@
+### School API
+@apiurl = http://localhost:3001
+
+###
+// Retrieve a list of all schools.
+// GET /api/schools
+GET {{apiurl}}/api/schools
+
+###
+// Retrieve a specific school by ID.
+// GET  /api/schools/:id
+GET {{apiurl}}/api/schools/001
+
+###
+GET {{apiurl}}/api/schools/66f32a7ffb2eb9633e4d5862
+
+###
+// Add a school
+// POST  /api/schools
+POST {{apiurl}}/api/schools
+Content-Type: application/json
+
+{
+  "name": "Test University"
+}
+
+###
+// Remove a school by ID.
+// DELETE   /schools/:id
+DELETE {{apiurl}}/api/schools/005
+
+###
+// Update school information by ID.
+// PUT  /schools/:id
+PUT {{apiurl}}/api/schools/005
+Content-Type: application/json
+
+{
+  "name": "TestTest University"
+}
