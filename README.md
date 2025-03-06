@@ -26,12 +26,14 @@ Before you begin, ensure you have met the following requirements:
 ## Installation
 1. Clone the repository:
    ```sh
-   git clone git@github.com:pcparagc/STAR-advisement-tool-backend.git
-   cd star-advisement-tool
+   git clone https://github.com/csula-star/STAR-advisement-tool-backend.git
    
+   cd STAR-advisement-tool-backend
+   ```
 2. Install the dependencies:
    ```sh
    npm install
+   ```
 3. Set up MongoDB:
 - Ensure you have a MongoDB instance running.
 - Replace the `mongoURL` in `server.js` with your MongoDB connection string if different.
