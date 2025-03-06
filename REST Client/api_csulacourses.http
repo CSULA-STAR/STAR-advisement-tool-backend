@@ -1,0 +1,58 @@
+### CSULA Course API
+@apiurl = http://localhost:3001
+
+###
+// Retrieve a list of all CSULA courses
+// GET /api/csula-courses
+GET {{apiurl}}/api/csula-courses
+
+###
+// Retrieve a specific CSULA course by ID
+// GET /api/csula-courses/:id
+GET {{apiurl}}/api/csula-courses/65eba573927a792a71f68ece
+
+###
+// Add a new CSULA course
+// POST /api/csula-courses
+POST {{apiurl}}/api/csula-courses
+Content-Type: application/json
+
+{
+  "course_code": ["TEST 2100"],
+  "course_name": "General Physics I, Mechanics",
+  "credits": 5,
+  "department": [
+    {
+      "id": "EE",
+      "name": "Electrical and Computer Engineering"
+    }
+  ],
+  "co_requisite": {
+    "course_code": [],
+    "description": ""
+  },
+  "pre_requisite": {
+    "course_code": ["TEST 2110"],
+    "description": "TEST 2110 with a minimum C grade"
+  },
+  "course_type": "lower_division",
+  "isPreAndCoreqAreSame": false,
+  "term": ["Fall", "Spring", "Summer"]
+}
+
+###
+// Remove a CSULA course by ID
+// DELETE /api/csula-courses/:id
+DELETE {{apiurl}}/api/csula-courses/65cfab990a9a8319afc92c04
+
+###
+// Update CSULA course information by ID
+// PUT /api/csula-courses/:id
+PUT {{apiurl}}/api/csula-courses/65cfab990a9a8319afc92c04
+Content-Type: application/json
+
+{
+  "course_name": "General Physics I, Mechanics - Updated",
+  "credits": 4,
+  "term": ["Fall", "Spring"]
+}

@@ -1,0 +1,37 @@
+### course API
+@apiurl = http://localhost:3001
+
+###
+// Retrieve a list of all courses.
+// GET /api/courses
+GET {{apiurl}}/api/courses
+
+###
+// Retrieve a specific course by ID.
+// GET  /api/courses/:id
+GET {{apiurl}}/api/courses/65cfab990a9a8319afc92c04
+
+###
+// Add a course
+// POST  /api/courses
+POST {{apiurl}}/api/courses
+Content-Type: application/json
+
+{
+  "name": "Test University"
+}
+
+###
+// Remove a course by ID.
+// DELETE   /courses/:id
+DELETE {{apiurl}}/api/courses/005
+
+###
+// Update course information by ID.
+// PUT  /courses/:id
+PUT {{apiurl}}/api/courses/005
+Content-Type: application/json
+
+{
+  "name": "TestTest University"
+}
