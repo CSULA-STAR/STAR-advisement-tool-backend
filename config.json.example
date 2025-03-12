@@ -1,0 +1,7 @@
+{
+    "username": "username",
+    "password": "password",
+    "projectname": "STAR",
+    "serverURL": "cluster0.XXXX.mongodb.net",
+    "jwtsecret": "XXXXXXXXXXXXXXX"
+}
