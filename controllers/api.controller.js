@@ -44,8 +44,8 @@ const fetchCSULACourses = async (req, res) => {
     const { dept } = req.query;
     try {
         const departmentData = await DeptReqBlocks.findOne({ dept_id: dept });
-        const csulaCourses = await CSULA_Courses.find({ "department.id": dept });
-
+        const csulaCourses = await CSULA_Courses.find({ "department.id": dept }).sort({"course_code.0": 0});
+        console.log(csulaCourses);
         const blockWiseCourses = [];
         const coursesWithoutBlock = [];
 
@@ -66,7 +66,7 @@ const fetchCSULACourses = async (req, res) => {
                 coursesWithoutBlock.push(course);
             }
         }
-
+        
         res.json({ blockWiseCourses, coursesWithoutBlock });
     } catch (error) {
         console.error("Error fetching CSULA courses:", error);
@@ -77,7 +77,8 @@ const fetchCSULACourses = async (req, res) => {
 const fetchAllCSULACourses = async (req, res) => {
     const { dept } = req.query;
     try {
-        const csulaCourses = await CSULA_Courses.find({ "department.id": dept });
+        const csulaCourses = await CSULA_Courses.find({ "department.id": dept }).sort({"course_code.0": 1});
+        console.log(csulaCourses);
         res.json(csulaCourses);
     } catch (error) {
         console.error("Error fetching CSULA courses:", error);
