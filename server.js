@@ -17,6 +17,7 @@ const csulaCourseRoutes = require('./routes/csulaCourse.routes');
 // const deptReqBlocksRoutes = require('./routes/deptReqBlocks.routes');
 // const courseTypesRoutes = require('./routes/courseTypes.routes');
 const apiRoutes = require('./routes/api.routes');
+const courseMappingRoutes = require('./routes/coursemapping.routes');
 
 // Mounting routes
 app.use('/api/schools', schoolRoutes);
@@ -26,6 +27,7 @@ app.use('/api/csula-courses', csulaCourseRoutes);
 // app.use('/dept-req-blocks', deptReqBlocksRoutes);
 // app.use('/course-types', courseTypesRoutes);
 app.use('/', apiRoutes);
+app.use('/api', courseMappingRoutes);
 
 app.listen(PORT, async () => {
     console.log(`Server is listening on port ${PORT}`);
