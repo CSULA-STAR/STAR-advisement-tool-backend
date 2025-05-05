@@ -1,5 +1,7 @@
 const CSULA_Courses = require('../models/csulaCourse.model');
 const Courses = require('../models/course.model');
+const Schools = require('../models/school.model');
+const Programs = require('../models/program.model');
 
 const fetchCourseMapping = async (req, res) => {
     const {s_id, dept} = req.query;
@@ -9,14 +11,20 @@ const fetchCourseMapping = async (req, res) => {
         const list_of_courses = await Courses.find({ 
             s_id : s_id, 
             department: {$in: [dept]}
-        });
-        // # use courseModel.model
-        
+        }).sort({equivalent_to: 1});
+        // get school info and program info for the response json
+        const school_info = await Schools.findOne({id: s_id});
+        const program_info = await Programs.findOne({s_id: s_id, department: dept});
+
 
         const mapping = [];
         
         for (const course of list_of_courses) {
             const arr_equiv = course.equivalent_to
+            // ****TODO ===== if arr_equiv is empty or len(arry) == 0 : skip ===== *****
+            if (arr_equiv.length == 0) {
+                continue;
+            }
 
             const csula_course = [];
             // # for loop through the equivalent courses
@@ -48,7 +56,6 @@ const fetchCourseMapping = async (req, res) => {
                         });
                     }
                 }
-                console.log(mapping_course);
             }
             else {
                 console.log(csula_course[0]);
@@ -80,11 +87,20 @@ const fetchCourseMapping = async (req, res) => {
                 }
                 
             }
-            mapping.push(mapping_course);
+
+            // TODO ### if len(csula_course) == 0 skip push into mapping
+            if (csula_course.length == 0) {
+                continue;
+            }
+            else {
+                mapping.push(mapping_course);
+            }
         }
         res.json({
             school_id: s_id,
+            school_name: school_info.name,
             department_id: dept,
+            department_name: program_info.name,
             mappings: mapping
         });
     }
