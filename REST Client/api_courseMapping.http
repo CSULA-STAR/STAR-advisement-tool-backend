@@ -1,3 +1,5 @@
 @apiurl = http://localhost:3001
 
+###
+// GET /api/course-mapping
 GET {{apiurl}}/api/course-mapping?s_id=001&dept=EE

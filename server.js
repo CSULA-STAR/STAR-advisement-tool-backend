@@ -15,6 +15,7 @@ const programRoutes = require('./routes/program.routes');
 const courseRoutes = require('./routes/course.routes');
 const csulaCourseRoutes = require('./routes/csulaCourse.routes');
 const courseMappingRoutes = require('./routes/coursemapping.routes');
+const autoimportRoutes = require('./routes/autoimport.routes');
 // const deptReqBlocksRoutes = require('./routes/deptReqBlocks.routes');
 // const courseTypesRoutes = require('./routes/courseTypes.routes');
 const apiRoutes = require('./routes/api.routes');
@@ -25,6 +26,10 @@ app.use('/api/programs', programRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/csula-courses', csulaCourseRoutes);
 app.use('/api/course-mapping', courseMappingRoutes);
+app.use('/api/autoimport', autoimportRoutes);
+
+http://localhost:3001/api/autoimport/
+
 // app.use('/dept-req-blocks', deptReqBlocksRoutes);
 // app.use('/course-types', courseTypesRoutes);
 app.use('/', apiRoutes);
