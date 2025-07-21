@@ -1,5 +1,58 @@
+### Autoimport API
 @apiurl = http://localhost:3001
 
 ###
-// GET /api/autoimport
-GET {{apiurl}}/api/autoimport
+// Auto import courses from ASSIST
+// GET /api/autoimport?s_id=${s_id}&dept=${dept}
+// The function will look up college name from Schools collection by s_id
+// and major name from Programs collection by s_id and dept
+GET {{apiurl}}/api/autoimport?s_id=001&dept=CS
+
+###
+// Import course mappings
+// POST /api/autoimport/courses
+POST {{apiurl}}/api/autoimport/courses
+Content-Type: application/json
+
+{
+  "school_id": "002",
+  "dept": "EE",
+  "mapping": [
+    {
+      "external_course": {
+        "course_code": "TEST ACCT 2100",
+        "course_name": "TEST Principles of Financial Accounting",
+        "credits": 3
+      },
+      "csula_course": {
+        "course_code": "TEST ACCT 001A",
+        "course_name": "TEST Financial Accounting",
+        "credits": 4
+      }
+    },
+    {
+      "external_course": {
+        "course_code": "TEST CIS 1200",
+        "course_name": "TEST Information and Technology Literacy",
+        "credits": 3
+      },
+      "csula_course": {
+        "course_code": "TEST BIT 025",
+        "course_name": "TEST Survey of Computer Technology in Business",
+        "credits": 3
+      }
+    },
+    {
+      "external_course": {
+        "course_code": "TEST CIS 1200",
+        "course_name": "TEST Information and Technology Literacy",
+        "credits": 3
+      },
+      "csula_course": {
+        "course_code": "TEST CIS 010",
+        "course_name": "TEST Introduction to Information Systems",
+        "credits": 3
+      }
+    }
+  ]
+}
