@@ -25,20 +25,20 @@ async function scrapeAssistData(ComCollege, Major) {
     try {
       const page = await browser.newPage();
       await page.goto('https://assist.org/');
-      await sleep(5000);
+      await sleep(500);
 
       // Fill out search
       await page.waitForSelector('#None-academic-year-select');
       await page.type('#None-academic-year-select', '2024');
-      await sleep(5000);
+      await sleep(500);
       await page.click('.ng-option');
-      await sleep(5000);
+      await sleep(500);
 
       await page.type('[name="from-institution"]', ComCollege);
       await page.waitForSelector('.option__primary-text');
-      await sleep(5000);
+      await sleep(500);
       await page.click('.option__primary-text');
-      await sleep(5000);
+      await sleep(500);
 
       const selector = '[name="institution-agreement"]';
       await page.waitForFunction((sel) => {
@@ -51,21 +51,21 @@ async function scrapeAssistData(ComCollege, Major) {
       await sleep(500);
       await page.keyboard.type('csula');
       await page.waitForSelector('.option__primary-text');
-      await sleep(5000);
+      await sleep(500);
       await page.click('.option__primary-text');
-      await sleep(5000);
+      await sleep(500);
 
       await page.click('button[type="submit"]');
-      await sleep(5000);
+      await sleep(500);
 
       await page.waitForSelector('[aria-label="Search for Major"]');
       await page.click('[aria-label="Search for Major"]');
-      await sleep(5000);
+      await sleep(500);
       await page.type('[aria-label="Search for Major"]', Major);
       await page.waitForSelector('.viewByRowColText');
-      await sleep(5000);
+      await sleep(500);
       await page.click('.viewByRowColText');
-      await sleep(5000);
+      await sleep(500);
 
       // Wait for articulation rows
       await page.waitForSelector('.articRow');
