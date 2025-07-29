@@ -35,6 +35,10 @@ const autoimport = async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch course data' });
   }
 };
+//add sleep 5 sec for each step
+//timeout if it gets stuck on some screen
+//http response codes
+
 
 const coursesimport = async (req, res) => {
   try {
@@ -94,14 +98,14 @@ const coursesimport = async (req, res) => {
           results.external_courses_created++;
         } else {
           // Update existing course with new equivalent
-          const isDuplicate = externalCourseDoc.equivalent_to.some(code => 
-            code.toLowerCase() === csula_course.course_code.toLowerCase()
-          );
-          if (!isDuplicate) {
-            externalCourseDoc.equivalent_to.push(csula_course.course_code);
-            await externalCourseDoc.save();
+            const isDuplicate = externalCourseDoc.equivalent_to.some(code => 
+              code.toLowerCase() === csula_course.course_code.toLowerCase()
+            );
+            if (!isDuplicate) {
+              externalCourseDoc.equivalent_to.push(csula_course.course_code);
+              await externalCourseDoc.save();
+            }
           }
-        }
 
         // TODO: Check if CSULA course already exists
 
