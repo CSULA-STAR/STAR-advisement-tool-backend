@@ -35,10 +35,6 @@ const autoimport = async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch course data' });
   }
 };
-//add sleep 5 sec for each step
-//timeout if it gets stuck on some screen
-//http response codes
-
 
 const coursesimport = async (req, res) => {
   try {
@@ -74,7 +70,20 @@ const coursesimport = async (req, res) => {
           continue;
         }
 
-        // TODO: Validate CSULA course data
+        
+      // TODO: Validate CSULA course data
+        
+      if (!course_code || !Array.isArray(course_code)) {
+      return res.status(400).json({ error: 'Missing or invalid course_code array' });
+      }
+
+      if (!course_name) {
+      return res.status(400).json({ error: 'Missing course_name parameter' });
+      }
+
+      if (!credits) {
+      return res.status(400).json({ error: 'Missing credits parameter' });
+      }
 
 
         // Check if external course already exists
@@ -109,9 +118,25 @@ const coursesimport = async (req, res) => {
 
         // TODO: Check if CSULA course already exists
 
-        
+        let csulaCourseDoc = await CSULACourses.findOne({
+          credits: csula_course.credits,
+          course_code: { $in: [csula_course.course_code] },
+          course_name: { $in: [csula_course.course_name] }
+        });
+         
         // TODO: Create CSULA course if it doesn't exist
-        
+
+        if (!csulaCourseDoc) {
+          csulaCourseDoc = new CSULACourses({
+            course_code: [csula_course.course_code],
+            course_name: csula_course.course_name,
+            credits: csula_course.credits || 0,
+            department: [dept] //needs to be added
+           
+        });
+          await csulaCourseDoc.save();
+          results.csula_courses_created++;
+        }         
 
         results.mappings_created++;
 
@@ -122,7 +147,7 @@ const coursesimport = async (req, res) => {
     }
 
     res.json({
-      message: 'Course import completed',
+      message: 'Courses import completed',
       results
     });
 
