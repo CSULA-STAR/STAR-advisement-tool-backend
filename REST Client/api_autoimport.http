@@ -17,6 +17,7 @@ Content-Type: application/json
 {
   "school_id": "002",
   "dept": "EE",
+  "department_name": "Electrical Engineering",
   "mapping": [
     {
       "external_course": {
@@ -53,6 +54,178 @@ Content-Type: application/json
         "course_name": "TEST Introduction to Information Systems",
         "credits": 3
       }
+    }
+  ]
+}
+
+
+###  
+// Example response from /api/autoimport?s_id=001&dept=CS
+
+{
+  "school_id": "001",
+  "school_name": "Pasadena City College",
+  "department_id": "CS",
+  "department_name": "Computer Science",
+  "mappings": [
+    {
+      "csula_course_code": "CS 1222",
+      "csula_course_name": "Introduction to Relational Databases",
+      "csula_credits": 3,
+      "equivalent_to": [],
+      "equivalent_to_course_name": [],
+      "equivalent_to_credits": []
+    },
+    {
+      "csula_course_code": "CS 2011",
+      "csula_course_name": "Introduction to Programming I",
+      "csula_credits": 3,
+      "equivalent_to": [
+        "CS 003B"
+      ],
+      "equivalent_to_course_name": [
+        "Fundamentals of Computer Science (JAVA)"
+      ],
+      "equivalent_to_credits": [
+        4
+      ]
+    },
+    {
+      "csula_course_code": "CS 2012",
+      "csula_course_name": "Introduction to Programming II",
+      "csula_credits": 3,
+      "equivalent_to": [
+        "CS 033"
+      ],
+      "equivalent_to_course_name": [
+        "Advanced JAVA Programming and Algorithm with Data Structures"
+      ],
+      "equivalent_to_credits": [
+        3
+      ]
+    },
+    {
+      "csula_course_code": "CS 2013",
+      "csula_course_name": "Programming with Data Structures",
+      "csula_credits": 3,
+      "equivalent_to": [
+        "CS 034",
+        "CS 008"
+      ],
+      "equivalent_to_course_name": [
+        "Advanced Python Programming and Basic Data Structures",
+        "Fundamentals of Computer Science III - Data Structures"
+      ],
+      "equivalent_to_credits": [
+        3,
+        4
+      ]
+    },
+    {
+      "csula_course_code": "CS 2148",
+      "csula_course_name": "Discrete Structures",
+      "csula_credits": 3,
+      "equivalent_to": [
+        "CS 045",
+        "MATH 022"
+      ],
+      "equivalent_to_course_name": [
+        "Discrete Structures with Computer Science Applications",
+        "Discrete Mathematics"
+      ],
+      "equivalent_to_credits": [
+        5,
+        4
+      ]
+    },
+    {
+      "csula_course_code": "CS 2445",
+      "csula_course_name": "Introduction to Computer Systems",
+      "csula_credits": 3,
+      "equivalent_to": [
+        "CS 066"
+      ],
+      "equivalent_to_course_name": [
+        "Assembly Language Programming for the Sciences and Mathematics"
+      ],
+      "equivalent_to_credits": [
+        4
+      ]
+    },
+    {
+      "csula_course_code": "CS 2470",
+      "csula_course_name": "Fundamentals of Network Systems and Cybersecurity",
+      "csula_credits": 3,
+      "equivalent_to": [],
+      "equivalent_to_course_name": [],
+      "equivalent_to_credits": []
+    },
+    {
+      "csula_course_code": "ENGL 2030",
+      "csula_course_name": "Introduction to Technical Writing",
+      "csula_credits": 3,
+      "equivalent_to": [],
+      "equivalent_to_course_name": [],
+      "equivalent_to_credits": []
+    },
+    {
+      "csula_course_code": "MATH 2110",
+      "csula_course_name": "Calculus I",
+      "csula_credits": 4,
+      "equivalent_to": [
+        "MATH 005A"
+      ],
+      "equivalent_to_course_name": [
+        "Single Variable Calculus I"
+      ],
+      "equivalent_to_credits": [
+        5
+      ]
+    },
+    {
+      "csula_course_code": "MATH 2120",
+      "csula_course_name": "Calculus II",
+      "csula_credits": 4,
+      "equivalent_to": [
+        "MATH 005B",
+        "MATH 005BH"
+      ],
+      "equivalent_to_course_name": [
+        "Single Variable Calculus II",
+        "Honors Single Variable Calculus II"
+      ],
+      "equivalent_to_credits": [
+        5,
+        5
+      ]
+    },
+    {
+      "csula_course_code": "MATH 2550",
+      "csula_course_name": "Introduction to Linear Algebra",
+      "csula_credits": 3,
+      "equivalent_to": [
+        "MATH 010"
+      ],
+      "equivalent_to_course_name": [
+        "Linear Algebra and Applications"
+      ],
+      "equivalent_to_credits": [
+        4
+      ]
+    },
+    {
+      "csula_course_code": "PHYS 2100",
+      "csula_course_name": "General Physics I: Mechanics",
+      "csula_credits": 5,
+      "equivalent_to": [
+        "PHYS 008A"
+      ],
+      "equivalent_to_course_name": [
+        "Physics for Scientists and Engineers I: Mechanics"
+      ],
+      "equivalent_to_credits": [
+        5
+      ]
     }
   ]
 }

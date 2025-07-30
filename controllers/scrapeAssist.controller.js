@@ -78,10 +78,10 @@ async function scrapeAssistData(ComCollege, Major) {
           const receiving = row.querySelector('.rowReceiving');
           const sending = row.querySelector('.rowSending');
 
-          const course_code = receiving?.querySelector('.prefixCourseNumber')?.innerText.trim() || null;
-          const course_name = receiving?.querySelector('.courseTitle')?.innerText.trim() || null;
-          const creditsRaw = receiving?.querySelector('.courseUnits')?.innerText.trim() || '';
-          const credits = parseFloat(creditsRaw.split(' ')[0]) || null;
+          const csula_course_code = receiving?.querySelector('.prefixCourseNumber')?.innerText.trim() || null;
+          const csula_course_name = receiving?.querySelector('.courseTitle')?.innerText.trim() || null;
+          const csula_creditsRaw = receiving?.querySelector('.courseUnits')?.innerText.trim() || '';
+          const csula_credits = parseFloat(csula_creditsRaw.split(' ')[0]) || null;
 
           const equivalent_to = [];
           const equivalent_to_course_name = [];
@@ -101,9 +101,9 @@ async function scrapeAssistData(ComCollege, Major) {
           });
 
           output.push({
-            course_code,
-            course_name,
-            credits,
+            csula_course_code,
+            csula_course_name,
+            csula_credits,
             equivalent_to,
             equivalent_to_course_name,
             equivalent_to_credits
