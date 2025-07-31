@@ -35,11 +35,31 @@ async function scrapeAssistData(ComCollege, Major) {
       await sleep(500);
 
       await page.type('[name="from-institution"]', ComCollege);
-      await page.waitForSelector('.option__primary-text');
-      await sleep(500);
-      await page.click('.option__primary-text');
-      await sleep(500);
+      await sleep(500); 
 
+      // Wait for the overlay panel to show up
+      await page.waitForSelector('.cdk-overlay-pane', { visible: true, timeout: 5000 });
+
+      // Get text from the dropdown panel
+      const dropdownText = await page.evaluate(() => {
+        const panel = document.querySelector('.cdk-overlay-pane');
+        return panel ? panel.innerText : '';
+      });
+
+      if (dropdownText.includes('No matching institutions found')) {
+        await browser.close();
+        return {
+          status: 400,
+          error: 'The institution is not found on assist.org'
+        };
+      }
+
+      const match = await page.$('.option__primary-text');
+      if (match) {
+        await match.click();
+        await sleep(500);
+      }
+      
       const selector = '[name="institution-agreement"]';
       await page.waitForFunction((sel) => {
         const el = document.querySelector(sel);
