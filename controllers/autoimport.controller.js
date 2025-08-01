@@ -29,6 +29,11 @@ const autoimport = async (req, res) => {
     const major = program.name;
 
     const data = await scrapeAssistData(college, major);
+
+    // Check if the data is valid
+    if (data.status && data.message) {
+      return res.status(data.status).json({ message: data.message });
+    }
     
     // Format response json structure
     const formattedResponse = {

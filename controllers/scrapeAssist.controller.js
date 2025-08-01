@@ -50,7 +50,7 @@ async function scrapeAssistData(ComCollege, Major) {
         await browser.close();
         return {
           status: 400,
-          error: 'The institution is not found on assist.org'
+          message: 'The institution is not found on assist.org'
         };
       }
 
